@@ -7,15 +7,15 @@ export const BlogPage = () => {
     <>
       <h1>BlogPage</h1>
       <ul>
-        {blogdata.map((post, index) => (
-          <BlogLink {...post} key={'blogdata-' + index} />
+        {blogdata.map((post) => (
+          <BlogLink {...post} key={post.slug} />
         ))}
       </ul>
     </>
   );
 };
 
-const BlogLink = ({ title, slug, content, author }) => {
+const BlogLink = ({ title, slug }) => {
   return (
     <li>
       <Link to={`/blog/${slug}`}>{title}</Link>
