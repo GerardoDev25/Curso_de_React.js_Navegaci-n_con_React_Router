@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import { useAuth } from './auth';
 
 export const LoginPage = () => {
@@ -8,6 +9,10 @@ export const LoginPage = () => {
     e.preventDefault();
     auth.login({ username });
   };
+
+  if (auth.user) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <>
